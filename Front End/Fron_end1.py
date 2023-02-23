@@ -89,7 +89,3 @@ def value_transactions():
     con2.close()
 
 value_transactions()
-
-
-
-
