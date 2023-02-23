@@ -18,7 +18,7 @@ import mysql.connector as mdb1
 #display the transactions made by customers living in a given zip code for a given month and year. 
 # Order by day in descending order.
 
-def display_transactions():
+def customer_transactions():
     con = mdb1.connect(
           host = "localhost",
           user  = "root",
@@ -55,4 +55,41 @@ def display_transactions():
         print(rows)
     con.close()
 
-display_transactions()
+customer_transactions()
+
+
+#Used to display the number and total values of transactions for a given type.
+
+def value_transactions():
+    con2 = mdb1.connect(
+          host = "localhost",
+          user  = "root",
+          password = "password",
+          database = "capstone_project"
+    
+        )
+    print("connected to database...")
+    cur2 = con2.cursor()
+    T_type = input("Please enter Transaction Type: ")
+    type_pattern = r'^[a-zA-Z]+$'
+    if not re.match(type_pattern, T_type):
+        print("Invalid input. Please enter correct input")
+    else:
+        print("Valid input. Thank you!")
+        
+    
+    st2 = "SELECT COUNT(transaction_id), round(SUM(transaction_value),2) FROM cdw_sapp_credit_card \
+          WHERE transaction_type = '{}'"
+    cur2.execute(st2.format(T_type))
+
+    result2 = cur2.fetchall()
+    #print(result)
+    for rows in result2:
+        print(rows)
+    con2.close()
+
+value_transactions()
+
+
+
+
