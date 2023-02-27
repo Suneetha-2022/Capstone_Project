@@ -80,12 +80,12 @@ def customer_transactions():
         print(df_ct)
     con.close()
 
-customer_transactions()
+#customer_transactions()
 
 
 #2.Used to display the number and total values of transactions for a given type.
 
-"""def value_transactions():
+def value_transactions():
 #Connecting to database
     con2 = mdb1.connect(
           host = "localhost",
@@ -126,9 +126,9 @@ customer_transactions()
         print(df_vt)
     con2.close()
 
-value_transactions()"""
+#value_transactions()
 
-"""def state_transactions():
+def state_transactions():
 #Connecting to database   
     con3 = mdb1.connect(
           host = "localhost",
@@ -168,9 +168,9 @@ value_transactions()"""
         print(df_st)
     con3.close()
 
-state_transactions()"""
+#state_transactions()
 
-"""def customer_info():
+def customer_info():
 #Connecting to database    
     con4 = mdb1.connect(
           host = "localhost",
@@ -221,11 +221,11 @@ state_transactions()"""
         print(df_ci)
     con4.close()
 
-customer_info()"""
+#customer_info()
 
 
 #6.generate a monthly bill for a credit card number for a given month and year.
-"""def monthly_bill():
+def monthly_bill():
 #Connecting to database    
     con6 = mdb1.connect(
           host = "localhost",
@@ -275,5 +275,58 @@ customer_info()"""
         print(df_mb)
     con6.close()
 
-monthly_bill()"""
+#monthly_bill()
+
+def trans_dates():
+#Connecting to database    
+    con7 = mdb1.connect(
+          host = "localhost",
+          user  = "root",
+          password = "password",
+          database = "capstone_project"
+    
+        )
+    print("connected to database...")
+    cur7 = con7.cursor()
+    
+    d_pattern = r'^[0-9]{8}$'
+    
+
+#Accepting input from console    
+    while True:
+        date1 = input("Please enter first date in 'yyyymmdd' format: ")
+        if re.match(d_pattern, date1):
+            print("Valid input")
+            break
+        else:
+            print("Invalid input, try again")
+    
+    while True:
+        date2 = input("Please enter second date in 'yyyymmdd' format (must be greater than previous date): ")
+        if re.match(d_pattern, date2):
+            print("Valid input")
+            break
+        else:
+            print("Invalid input, try again")
+        
+    print("Here are the results")
+
+    st7 = "SELECT round(SUM(transaction_value), 2) AS total, '{date1}' AS date_1, '{date2}' AS date_2,\
+           CASE WHEN '{date2}' > '{date1}' THEN 'Valid date format, if None data is not available' ELSE 'Not_Valid dates second date should be greater' END AS date_values\
+           FROM cdw_sapp_credit_card WHERE timeid >= {date1} AND timeid <= {date2}"
+
+ 
+    cur7.execute(st7.format(date1 = date1, date2 = date2))
+
+    result7 = cur7.fetchall()
+    
+#Convert result list to dataframe        
+    df_date = pd.DataFrame(result7, columns=['Total transaction value', 'DATE_1', 'DATE_2', 'Valid Dates or not'])
+    if df_date.empty:
+        print('Data unavailable for given input')
+    else:
+        print(df_date)
+    con7.close()
+
+#trans_dates()
 
