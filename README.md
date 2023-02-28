@@ -1,8 +1,6 @@
-# Capstone Project
-
 ## Title: Credit Card Data Processing
 
-## Project Definition: 
+### Project Definition: 
 This project demonstrates ETL process for a Loan Application dataset and a Credit Card dataset. 
 ### Environment: 
 1.Python 3.10.6, Python modules like Pandas and advanced modules like Matplotlib, MariaDB, Heidi SQL, Apache Spark (Spark Core, Spark SQL), VS Code, git and git bash for source control.
