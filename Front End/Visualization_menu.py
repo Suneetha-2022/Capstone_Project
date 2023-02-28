@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from Visualization_functions import*
 from Visualization_functions2 import*
 
-menu= pyip.inputMenu(['Transaction type has a high rate of transactions', 
+menu= pyip.inputMenu(['Transaction type with high rate of transactions', 
                     'State with high number of customers', 
                     'Customer with highest transaction amount', 
                     'Percentage of self-employed applicants', 

@@ -6,7 +6,7 @@ from Front_end_functions import*
 
 
 menu= pyip.inputMenu(['Display customer transactions', 'CustomerTotal for given Transaction Type', 'Count and Value for All Branches of a state', 
-                    'Check customer account details', 'Cutomer monthly transactions', 'Transaction_value b/w two dates', 
+                    'Check customer account details', 'Update Customer info','Cutomer monthly transactions', 'Transaction_value b/w two dates', 
                     'Exit'], numbered=True)
 
 
@@ -19,6 +19,8 @@ elif menu == "Count and Value for All Branches of a state":
      state_transactions()
 elif menu == "Check customer account details":
      customer_info()
+elif menu == 'Update Customer info':
+     m_cust_city()
 elif menu == "Cutomer monthly transactions":
      monthly_bill()
 elif menu == 'Transaction_value b/w two dates':

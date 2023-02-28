@@ -12,6 +12,7 @@ from pyspark import SparkContext
 from pyspark.sql.functions import monotonically_increasing_id
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+#from secrets import username, password
 
 spark = SparkSession.builder.appName("Visualizations_App2").getOrCreate()
 
@@ -116,9 +117,11 @@ def cust_hight():
     p_df.set_index(["FIRST_NAME", "LAST_NAME"], inplace = True)
     #p_df
     p_df.plot(kind='bar', figsize=(10, 6), rot=90, color = 'blue')
+    plt.ylim(0, 100)
     plt.xlabel('Customer Name')
     plt.ylabel('Transaction Value')
     plt.title('Customers with highest transaction amount')
+    plt.xticks(rotation=45)
     plt.show()
     spark.stop()
 

@@ -37,7 +37,7 @@ def branch_high():
     #plt.xlabel('Branch_code with Health_care transaction')
     xlabel.set_position((0.5, 0.1))
     plt.ylabel('Transaction Amount')
-    plt.title('Branch with highest Healthcare Transaction in dollar')
+    plt.title('Branch code with highest Healthcare Transaction in dollar')
     plt.xticks(rotation=45)
     plt.show()
     spark.stop()
