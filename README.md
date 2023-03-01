@@ -1,4 +1,4 @@
-## Title: Credit Card Data Processing
+## Title: Credit Card and Loan Application Data Processing
 
 ### Project Definition: 
 This project demonstrates ETL process for a Loan Application dataset and a Credit Card dataset. 
