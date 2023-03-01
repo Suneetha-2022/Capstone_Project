@@ -5,7 +5,7 @@ This project demonstrates ETL process for a Loan Application dataset and a Credi
 ### Environment: 
 1.Python 3.10.6, Python modules like Pandas and advanced modules like Matplotlib, MariaDB, Heidi SQL, Apache Spark (Spark Core, Spark SQL), VS Code, git and git bash for source control.
 
-2.Setting up Virtual environment in Python and install all the required packages. 
+2.Setting up Virtual environment in Python, install all the required packages and add all the dataset files, virtual environment files and files with usernames and passwords to gitignore. 
 ### Modules: The whole project is divided into four modules.
 **1.ETL**: Extracting, transforming according to mapping document and Loading Credit Card dataset.
 
